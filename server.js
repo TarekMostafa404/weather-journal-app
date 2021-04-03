@@ -30,9 +30,9 @@ app.post('/addData', function(req, res) {
     projectData.temp = req.body.temp;
     projectData.date = req.body.date;
     projectData.userValue = req.body.feelings;
-    res.send();
+    res.send('Data added');
 })
 
 const server = app.listen(port, function() {
-    console.log(`server running at http://localhost:/${port}`);
+    console.log(`server running at http://localhost:${port}`);
 })
