@@ -21,9 +21,6 @@ app.use(express.static('website'));
 
 const port = 8888;
 // Setup Server
-const server = app.listen(port, function() {
-    console.log(`server running in port${port}`);
-})
 
 app.get('/data', function(req, res) {
     res.send(projectData);
@@ -33,4 +30,9 @@ app.post('/addData', function(req, res) {
     projectData.temp = req.body.temp;
     projectData.date = req.body.date;
     projectData.userValue = req.body.feelings;
+    res.send();
+})
+
+const server = app.listen(port, function() {
+    console.log(`server running at http://localhost:/${port}`);
 })
