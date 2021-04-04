@@ -35,7 +35,7 @@ async function getWebData(zipCode) {
 async function postData(request) {
     const data = {
         temp: request.main.temp,
-        country: request.main.country,
+        country: request.sys.country,
         feelings: document.querySelector('#feelings').value,
         date: newDate
     };
@@ -53,10 +53,10 @@ async function getData() {
     const content = await fetch('http://localhost:8888/data');
     try {
         const appData = await content.json();
-        document.querySelector('#temp').textContent = appData.temp;
-        document.querySelector('#date').textContent = appData.date;
-        document.querySelector('#content').textContent = appData.feelings;
-        document.querySelector('#country').textContent = appData.country;
+        document.querySelector('#date').textContent = `Date: ${appData.date}`;
+        document.querySelector('#country').textContent = `Country: ${appData.country}`;
+        document.querySelector('#temp').textContent = `Tempreture: ${appData.temp}`;
+        document.querySelector('#content').textContent = `I feel: ${appData.feelings}`;
     } catch (error) {
         console.log(error);
     }
