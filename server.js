@@ -29,7 +29,7 @@ app.get('/data', function(req, res) {
 app.post('/addData', function(req, res) {
     projectData.temp = req.body.temp;
     projectData.date = req.body.date;
-    projectData.userValue = req.body.feelings;
+    projectData.feelings = req.body.feelings;
     res.send('Data added');
 })
 
