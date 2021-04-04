@@ -18,20 +18,20 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-
-const port = 8888;
-// Setup Server
+app.post('/addData', function(req, res) {
+    projectData.temp = req.body.temp;
+    projectData.date = req.body.date;
+    projectData.feelings = req.body.feelings;
+    projectData.country = req.body.country;
+    res.send('Data added');
+})
 
 app.get('/data', function(req, res) {
     res.send(projectData);
 })
 
-app.post('/addData', function(req, res) {
-    projectData.temp = req.body.temp;
-    projectData.date = req.body.date;
-    projectData.feelings = req.body.feelings;
-    res.send('Data added');
-})
+// Setup Server
+const port = 8888;
 
 const server = app.listen(port, function() {
     console.log(`server running at http://localhost:${port}`);

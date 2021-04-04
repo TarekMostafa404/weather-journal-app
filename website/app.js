@@ -21,25 +21,26 @@ function generateBtnHandler() {
             .then(getData);
 
     } else {
-        alert('Enter a valid zip code')
+        alert('Enter a valid zip code');
     }
-
 }
+
 /* Function to GET Web API Data*/
 async function getWebData(zipCode) {
-    const requestUi = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`);
-    return await requestUi.json();
+    const request = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`);
+    return await request.json();
 }
 
 /* Function to POST data */
-async function postData(requestUi) {
+async function postData(request) {
     const data = {
-        temp: requestUi.main.temp,
+        temp: request.main.temp,
+        country: request.main.country,
         feelings: document.querySelector('#feelings').value,
         date: newDate
     };
 
-    const request = await fetch('http://localhost:8888/addData', {
+    const appRequest = await fetch('http://localhost:8888/addData', {
         method: 'POST',
         credentials: 'same-origin',
         headers: { 'Content-Type': 'application/json' },
@@ -49,12 +50,13 @@ async function postData(requestUi) {
 
 /* Function to GET Project Data */
 async function getData() {
-    const contentUi = await fetch('http://localhost:8888/data');
+    const content = await fetch('http://localhost:8888/data');
     try {
-        const data = await contentUi.json();
-        document.querySelector('#date').textContent = data.date;
-        document.querySelector('#temp').textContent = data.temp;
-        document.querySelector('#content').textContent = data.feelings;
+        const appData = await content.json();
+        document.querySelector('#temp').textContent = appData.temp;
+        document.querySelector('#date').textContent = appData.date;
+        document.querySelector('#content').textContent = appData.feelings;
+        document.querySelector('#country').textContent = appData.country;
     } catch (error) {
         console.log(error);
     }
