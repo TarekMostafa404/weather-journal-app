@@ -5,7 +5,11 @@ const apiKey = '8f155260d94c860f85dd5c1245283323';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
+<<<<<<< Updated upstream
 let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
+=======
+let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+>>>>>>> Stashed changes
 
 // Event listener to add function to existing HTML DOM element
 document.querySelector('#generate')
@@ -19,7 +23,6 @@ function generateBtnHandler() {
         getWebData(zipCode)
             .then(postData)
             .then(getData);
-
     } else {
         alert('Enter a valid zip code');
     }
@@ -32,7 +35,11 @@ async function getWebData(zipCode) {
 }
 
 /* Function to POST data */
+<<<<<<< Updated upstream
 async function postData(request) {
+=======
+async function postData(requestUi) {
+>>>>>>> Stashed changes
     const data = {
         temp: request.main.temp,
         country: request.sys.country,

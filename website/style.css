@@ -25,6 +25,7 @@ body {
 }
 
 #entryHolder {}
+<<<<<<< Updated upstream
 
 #date {}
 
@@ -36,6 +37,19 @@ body {
 
 .title {}
 
+=======
+
+#date {}
+
+#temp {}
+
+#content {}
+
+.headline {}
+
+.title {}
+
+>>>>>>> Stashed changes
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 
@@ -55,6 +69,7 @@ input {
     border: none;
 }
 
+<<<<<<< Updated upstream
 button:hover {
     color: #2dda61;
     background: #4161ad;
@@ -62,6 +77,9 @@ button:hover {
 
 button {
     display: block;
+=======
+button {
+>>>>>>> Stashed changes
     width: 400px;
     height: 100px;
     background: #313e5c;
