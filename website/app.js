@@ -5,9 +5,7 @@ const apiKey = '8f155260d94c860f85dd5c1245283323';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
-
-
+let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
 
 // Event listener to add function to existing HTML DOM element
 document.querySelector('#generate')
@@ -51,12 +49,12 @@ async function postData(requestUi) {
 
 /* Function to GET Project Data */
 async function getData() {
-    const requestUi = await fetch('http://localhost:8888/data');
+    const contentUi = await fetch('http://localhost:8888/data');
     try {
-        const data = await requestUi.json();
+        const data = await contentUi.json();
         document.querySelector('#date').textContent = data.date;
         document.querySelector('#temp').textContent = data.temp;
-        document.querySelector('#feelings').textContent = data.feelings;
+        document.querySelector('#content').textContent = data.feelings;
     } catch (error) {
         console.log(error);
     }
