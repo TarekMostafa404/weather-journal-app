@@ -18,7 +18,11 @@ function generateBtnHandler() {
     if (zipCode) {
         getWebData(zipCode)
             .then(postData)
-            .then(getData);
+            .then(getData)
+            .catch((err) => {
+                console.log(err);
+            })
+
     } else {
         alert('Enter a valid zip code');
     }
@@ -26,8 +30,13 @@ function generateBtnHandler() {
 
 /* Function to GET Web API Data*/
 async function getWebData(zipCode) {
-    const request = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`);
-    return await request.json();
+    try {
+        const request = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`);
+        return await request.json();
+    } catch (error) {
+        console.log(error);
+        throw "The map not reachable :(";
+    }
 }
 
 /* Function to POST data */
@@ -38,19 +47,23 @@ async function postData(request) {
         feelings: document.querySelector('#feelings').value,
         date: newDate
     };
+    try {
+        const appRequest = await fetch('http://ffd', {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
-    const appRequest = await fetch('http://localhost:8888/addData', {
-        method: 'POST',
-        credentials: 'same-origin',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
 }
 
 /* Function to GET Project Data */
 async function getData() {
-    const content = await fetch('http://localhost:8888/data');
     try {
+        const content = await fetch('/data');
         const appData = await content.json();
         document.querySelector('#date').textContent = `Date: ${appData.date}`;
         document.querySelector('#country').textContent = `Country: ${appData.country}`;

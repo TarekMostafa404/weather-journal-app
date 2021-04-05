@@ -21,12 +21,12 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
-app.post('/addData', function(req, res) {
+app.post('/data', function(req, res) {
     projectData.temp = req.body.temp;
     projectData.date = req.body.date;
     projectData.feelings = req.body.feelings;
     projectData.country = req.body.country;
-    res.send('Data added');
+    res.send('OK');
 })
 
 app.get('/data', function(req, res) {
