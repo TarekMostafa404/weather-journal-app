@@ -22,7 +22,6 @@ function generateBtnHandler() {
             .catch((err) => {
                 console.log(err);
             })
-
     } else {
         alert('Enter a valid zip code');
     }
