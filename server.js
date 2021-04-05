@@ -35,7 +35,6 @@ app.get('/data', function(req, res) {
 
 // Setup Server
 const port = 8888;
-
 const server = app.listen(port, function() {
     console.log(`server running at http://localhost:${port}`);
 })

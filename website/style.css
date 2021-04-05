@@ -1,17 +1,17 @@
 body {
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    /* margin: 0; */
-    /* padding: 0; */
+    /* margin: 0;
+    padding: 0; */
 }
 
 #app {
     display: grid;
-    /* grid-auto-rows: minmax(150px, auto); */
+    grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height: 100%;
-    background: #f23557;
-    color: #f0d43a;
+    background: #7F99CC;
+    color: #fff;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -21,25 +21,37 @@ body {
 .holder {}
 
 .entry {
-    background: rgba(59, 74, 107, .4);
-    margin-bottom: 20px;
+    background: #4C667F;
+    margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
 #entryHolder {
-    padding-left: 20px;
+    padding-left: 15px;
 }
 
-#date {}
+#date {
+    color: #E5E500;
+}
 
-#temp {}
+#temp {
+    color: #1999E5;
+}
 
-#content {}
+#content {
+    color: #7FCC19;
+}
 
-.headline {}
+#country {
+    color: #E59919;
+}
+
+.headline {
+    color: greenyellow;
+}
 
 .title {
-    padding-left: 5px;
+    padding-left: 15px;
 }
 
 
@@ -54,15 +66,16 @@ input {
     display: block;
     height: 60px;
     width: 320px;
-    background: #22b2da;
-    color: #f0d43a;
+    background: #4C667F;
+    color: rgb(15, 233, 88);
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    padding-left: 5px;
 }
 
 button:hover {
-    color: #2dda61;
+    color: #E59900;
     background: #4161ad;
 }
 
@@ -71,7 +84,7 @@ button {
     width: 400px;
     height: 100px;
     background: #313e5c;
-    color: #f0d43a;
+    color: #fffff8;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -83,10 +96,12 @@ h1 {
 }
 
 textarea {
-    background: #22b2da;
-    color: #f0d43a;
+    background: #4C667F;
+    color: rgb(15, 233, 88);
+    /* color: #fff; */
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    padding-left: 5px;
 }
 
 

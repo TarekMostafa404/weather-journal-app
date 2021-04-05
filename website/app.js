@@ -34,7 +34,7 @@ async function getWebData(zipCode) {
         return await request.json();
     } catch (error) {
         console.log(error);
-        throw "The map not reachable :(";
+        throw "The Map not reachable :(";
     }
 }
 
@@ -46,8 +46,9 @@ async function postData(request) {
         feelings: document.querySelector('#feelings').value,
         date: newDate
     };
+
     try {
-        const appRequest = await fetch('http://ffd', {
+        const appRequest = await fetch('/data', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'Content-Type': 'application/json' },
@@ -56,7 +57,6 @@ async function postData(request) {
     } catch (error) {
         console.log(error);
     }
-
 }
 
 /* Function to GET Project Data */
@@ -66,8 +66,8 @@ async function getData() {
         const appData = await content.json();
         document.querySelector('#date').textContent = `Date: ${appData.date}`;
         document.querySelector('#country').textContent = `Country: ${appData.country}`;
-        document.querySelector('#temp').textContent = `Tempreture: ${appData.temp}`;
-        document.querySelector('#content').textContent = `I feel: ${appData.feelings}`;
+        document.querySelector('#temp').textContent = `Tempreture: ${appData.temp}°C`;
+        document.querySelector('#content').textContent = `I feel like: ${appData.feelings}`;
     } catch (error) {
         console.log(error);
     }
