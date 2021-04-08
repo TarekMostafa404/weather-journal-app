@@ -30,9 +30,10 @@ function buttonHandler() {
 /* Function to GET Web API Data*/
 async function getWebData(zipCode) {
     try {
-        const mainURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`;
-        const response = await fetch(mainURL);
-        return await response.json();
+        const url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`;
+
+        const request = await fetch(url);
+        return await request.json();
     } catch (error) {
         console.log(error);
         throw "The Map not reachable :(";
@@ -64,6 +65,7 @@ async function getData() {
     try {
         const content = await fetch('/data');
         const appData = await content.json();
+
         document.querySelector('#date').innerHTML = `Date of today >>> ${appData.date}`;
         document.querySelector('#temp').innerHTML = `Tempreture >>> ${appData.temp}°F`;
         document.querySelector('#content').innerHTML = `I feel like >>> ${appData.feelings}`;
