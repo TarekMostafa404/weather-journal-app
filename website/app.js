@@ -5,22 +5,22 @@ const apiKey = '8f155260d94c860f85dd5c1245283323';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '/' + d.getDate() + '/' + d.getFullYear();
+let newDate = `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
 
 // Event listener to add function to existing HTML DOM element
 document.querySelector('#generate')
-    .addEventListener('click', generateBtnHandler);
+    .addEventListener('click', buttonHandler);
 
 /* Function called by event listener */
-function generateBtnHandler() {
+function buttonHandler() {
     const zipCode = document.querySelector('#zip').value;
 
     if (zipCode) {
         getWebData(zipCode)
             .then(postData)
             .then(getData)
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
             })
     } else {
         alert('Enter a valid zip code');
@@ -30,8 +30,9 @@ function generateBtnHandler() {
 /* Function to GET Web API Data*/
 async function getWebData(zipCode) {
     try {
-        const request = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`);
-        return await request.json();
+        const mainURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}`;
+        const response = await fetch(mainURL);
+        return await response.json();
     } catch (error) {
         console.log(error);
         throw "The Map not reachable :(";
@@ -41,10 +42,9 @@ async function getWebData(zipCode) {
 /* Function to POST data */
 async function postData(request) {
     const data = {
+        date: newDate,
         temp: request.main.temp,
-        country: request.sys.country,
         feelings: document.querySelector('#feelings').value,
-        date: newDate
     };
 
     try {
@@ -64,10 +64,9 @@ async function getData() {
     try {
         const content = await fetch('/data');
         const appData = await content.json();
-        document.querySelector('#date').textContent = `Date: ${appData.date}`;
-        document.querySelector('#country').textContent = `Country: ${appData.country}`;
-        document.querySelector('#temp').textContent = `Tempreture: ${appData.temp}°C`;
-        document.querySelector('#content').textContent = `I feel like: ${appData.feelings}`;
+        document.querySelector('#date').innerHTML = `Date of today >>> ${appData.date}`;
+        document.querySelector('#temp').innerHTML = `Tempreture >>> ${appData.temp}°C`;
+        document.querySelector('#content').innerHTML = `I feel like >>> ${appData.feelings}`;
     } catch (error) {
         console.log(error);
     }

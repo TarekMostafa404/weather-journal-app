@@ -22,10 +22,9 @@ app.use(cors());
 app.use(express.static('website'));
 
 app.post('/data', function(req, res) {
-    projectData.temp = req.body.temp;
     projectData.date = req.body.date;
+    projectData.temp = req.body.temp;
     projectData.feelings = req.body.feelings;
-    projectData.country = req.body.country;
     res.send('OK');
 })
 
