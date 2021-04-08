@@ -5,7 +5,7 @@ const apiKey = '8f155260d94c860f85dd5c1245283323';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
+let newDate = `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`;
 
 // Event listener to add function to existing HTML DOM element
 document.querySelector('#generate')
