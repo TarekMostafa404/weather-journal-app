@@ -23,7 +23,7 @@ function buttonHandler() {
                 console.log(error);
             })
     } else {
-        alert('Enter a valid zip code');
+        alert('Enter a valid ZipCode');
     }
 }
 
