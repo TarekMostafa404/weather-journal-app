@@ -65,7 +65,7 @@ async function getData() {
         const content = await fetch('/data');
         const appData = await content.json();
         document.querySelector('#date').innerHTML = `Date of today >>> ${appData.date}`;
-        document.querySelector('#temp').innerHTML = `Tempreture >>> ${appData.temp}°C`;
+        document.querySelector('#temp').innerHTML = `Tempreture >>> ${appData.temp}°F`;
         document.querySelector('#content').innerHTML = `I feel like >>> ${appData.feelings}`;
     } catch (error) {
         console.log(error);
