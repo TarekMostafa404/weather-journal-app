@@ -5,7 +5,7 @@ const apiKey = '8f155260d94c860f85dd5c1245283323';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = `${d.getDate()}.${d.getMonth()+1}.${d.getFullYear()}`;
+let newDate = `${d.getDate()} - ${d.getMonth()+1} - ${d.getFullYear()}`;
 
 // Event listener to add function to existing HTML DOM element
 document.querySelector('#generate')
@@ -44,6 +44,8 @@ async function postData(request) {
     const data = {
         date: newDate,
         temp: request.main.temp,
+        humidity: request.main.humidity,
+        name: request.name,
         feelings: document.querySelector('#feelings').value,
     };
 
@@ -64,8 +66,10 @@ async function getData() {
     try {
         const content = await fetch('/data');
         const appData = await content.json();
-        document.querySelector('#date').innerHTML = `Date of today >>> ${appData.date}`;
+        document.querySelector('#date').innerHTML = `Today's Date >>> ${appData.date}`;
         document.querySelector('#temp').innerHTML = `Tempreture >>> ${appData.temp}°F`;
+        document.querySelector('#name').innerHTML = `City Name >>> ${appData.name}`;
+        document.querySelector('#humidity').innerHTML = `Humidity >>> ${appData.humidity}`;
         document.querySelector('#content').innerHTML = `I feel like >>> ${appData.feelings}`;
     } catch (error) {
         console.log(error);

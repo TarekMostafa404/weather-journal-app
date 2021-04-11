@@ -24,6 +24,8 @@ app.use(express.static('website'));
 app.post('/data', function(req, res) {
     projectData.date = req.body.date;
     projectData.temp = req.body.temp;
+    projectData.name = req.body.name;
+    projectData.humidity = req.body.humidity;
     projectData.feelings = req.body.feelings;
     res.send('OK');
 })

@@ -1,14 +1,13 @@
 body {
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    /* margin: 0;
-    padding: 0; */
 }
 
 #app {
     display: grid;
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
+    /* height: 100vh; */
     height: 100%;
     background: #7F99CC;
     color: #fff;
@@ -18,8 +17,6 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.holder {}
-
 .entry {
     background: #4C667F;
     margin-bottom: 10px;
@@ -27,27 +24,16 @@ body {
 }
 
 #entryHolder {
-    padding-left: 15px;
-}
-
-#date {
-    color: #E5E500;
-}
-
-#temp {
-    color: #E59919;
-}
-
-#content {
-    color: #7FCC19;
+    padding-left: 10px;
 }
 
 .headline {
-    color: greenyellow;
+    color: rgb(21, 69, 141);
 }
 
 .title {
     padding-left: 15px;
+    color: #eeee0d;
 }
 
 
@@ -63,7 +49,7 @@ input {
     height: 60px;
     width: 320px;
     background: #4C667F;
-    color: rgb(15, 233, 88);
+    color: #eeee0d;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -71,16 +57,16 @@ input {
 }
 
 button:hover {
-    color: #E59900;
+    color: #d49a25;
     background: #4161ad;
 }
 
 button {
     display: block;
-    width: 400px;
+    width: 350px;
     height: 100px;
     background: #313e5c;
-    color: #fffff8;
+    color: #eeee0d;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -93,7 +79,7 @@ h1 {
 
 textarea {
     background: #4C667F;
-    color: rgb(15, 233, 88);
+    color: #eeee0d;
     /* color: #fff; */
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
@@ -115,7 +101,7 @@ button:focus {
 
 ::placeholder {
     /* Firefox, Chrome, Opera */
-    color: #f0d43a;
+    color: #b6b9c7;
     font-family: 'Oswald', sans-serif;
 }
 
